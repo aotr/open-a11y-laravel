@@ -9,7 +9,7 @@
 
 open-a11y ships profiles, individual tools, keyboard shortcuts, persisted preferences, and a shadow-DOM interface. This package gives that runtime a Blade component, a Livewire component, publishable config, and a standalone browser bundle. It also includes complete Inertia React, Vue, and Svelte example pages. No Node, Vite, or front-end build is required for the Blade/Livewire package itself.
 
-![open-a11y Laravel surfaces](art/overview.png)
+![open-a11y Laravel surfaces](art/overview.png?v=3)
 
 ```blade
 <x-open-a11y::widget :config="['position' => 'bottom-right', 'brand' => ['primary' => '#0f6b4f']]" />
@@ -152,7 +152,7 @@ itself; both paths flow through the same event.
 
 The repository includes a full Inertia React page at `/inertia-react`.
 
-![Inertia React demo](art/inertia-react.png) The
+![Inertia React demo](art/inertia-react.png?v=3) The
 package itself is framework-neutral; use the official React adapter in your
 Inertia entry:
 
@@ -197,7 +197,7 @@ export default function Welcome({ config }) {
 
 ## Inertia + Vue
 
-![Inertia Vue demo](art/inertia-vue.png)
+![Inertia Vue demo](art/inertia-vue.png?v=3)
 
 ```bash
 npm install @aotr/open-a11y @inertiajs/vue3 vue
@@ -238,7 +238,7 @@ defineProps<{ config: Record<string, unknown> }>();
 
 ## Inertia + Svelte
 
-![Inertia Svelte demo](art/inertia-svelte.png)
+![Inertia Svelte demo](art/inertia-svelte.png?v=3)
 
 ```bash
 npm install @aotr/open-a11y @inertiajs/svelte svelte
