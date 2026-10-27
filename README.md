@@ -9,6 +9,8 @@
 
 open-a11y ships profiles, individual tools, keyboard shortcuts, persisted preferences, and a shadow-DOM interface. This package gives that runtime a Blade component, a Livewire component, publishable config, and a standalone browser bundle. It also includes complete Inertia React, Vue, and Svelte example pages. No Node, Vite, or front-end build is required for the Blade/Livewire package itself.
 
+![open-a11y Laravel surfaces](art/overview.png)
+
 ```blade
 <x-open-a11y::widget :config="['position' => 'bottom-right', 'brand' => ['primary' => '#0f6b4f']]" />
 ```
