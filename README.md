@@ -148,7 +148,9 @@ itself; both paths flow through the same event.
 
 ## Inertia + React
 
-The repository includes a full Inertia React page at `/inertia-react`. The
+The repository includes a full Inertia React page at `/inertia-react`.
+
+![Inertia React demo](art/inertia-react.png) The
 package itself is framework-neutral; use the official React adapter in your
 Inertia entry:
 
@@ -192,6 +194,8 @@ export default function Welcome({ config }) {
 ```
 
 ## Inertia + Vue
+
+![Inertia Vue demo](art/inertia-vue.png)
 
 ```bash
 npm install @aotr/open-a11y @inertiajs/vue3 vue
