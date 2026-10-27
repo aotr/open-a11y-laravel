@@ -152,8 +152,9 @@ itself; both paths flow through the same event.
 
 The repository includes a full Inertia React page at `/inertia-react`.
 
-![Inertia React demo](art/inertia-react.png?v=3) The
-package itself is framework-neutral; use the official React adapter in your
+![Inertia React demo](art/inertia-react.png?v=3)
+
+The package itself is framework-neutral; use the official React adapter in your
 Inertia entry:
 
 ```bash
