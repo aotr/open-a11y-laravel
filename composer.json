@@ -1,65 +1,69 @@
 {
-    "name": "aotr/open-a11y-laravel",
-    "description": "The open-a11y accessibility widget for Laravel Blade and Livewire.",
-    "keywords": [
-        "laravel",
-        "livewire",
-        "blade",
-        "accessibility",
-        "a11y",
-        "widget",
-        "wcag"
-    ],
-    "homepage": "https://github.com/aotr/open-a11y-laravel",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Animesh Chakraborty",
-            "email": "animesh.aotr@gmail.com",
-            "homepage": "https://github.com/aotr",
-            "role": "Developer"
-        }
-    ],
-    "support": {
-        "issues": "https://github.com/aotr/open-a11y-laravel/issues",
-        "source": "https://github.com/aotr/open-a11y-laravel"
-    },
-    "require": {
-        "php": "^8.2",
-        "illuminate/support": "^12.0",
-        "illuminate/view": "^12.0",
-        "livewire/livewire": "^3.5"
-    },
-    "require-dev": {
-        "orchestra/testbench": "^10.0",
-        "phpunit/phpunit": "^11.5"
-    },
-    "autoload": {
-        "psr-4": {
-            "Aotr\\OpenA11y\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Aotr\\OpenA11y\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/"
-        }
-    },
-    "scripts": {
-        "test": "vendor/bin/phpunit",
-        "demo": "vendor/bin/testbench serve --port=4179"
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Aotr\\OpenA11y\\OpenA11yServiceProvider"
-            ]
-        }
-    },
-    "config": {
-        "sort-packages": true,
-        "process-timeout": 0
-    },
-    "minimum-stability": "stable",
-    "prefer-stable": true
+  "name": "aotr/open-a11y-laravel",
+  "description": "The open-a11y accessibility widget for Laravel Blade, Livewire, and Inertia React/Vue.",
+  "keywords": [
+    "laravel",
+    "livewire",
+    "blade",
+    "inertia",
+    "react",
+    "vue",
+    "accessibility",
+    "a11y",
+    "widget",
+    "wcag"
+  ],
+  "homepage": "https://github.com/aotr/open-a11y-laravel",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Animesh Chakraborty",
+      "email": "animesh.aotr@gmail.com",
+      "homepage": "https://github.com/aotr",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/aotr/open-a11y-laravel/issues",
+    "source": "https://github.com/aotr/open-a11y-laravel"
+  },
+  "require": {
+    "php": "^8.2",
+    "illuminate/support": "^12.0",
+    "illuminate/view": "^12.0",
+    "livewire/livewire": "^3.5"
+  },
+  "require-dev": {
+    "inertiajs/inertia-laravel": "^3.5",
+    "orchestra/testbench": "^10.0",
+    "phpunit/phpunit": "^11.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Aotr\\OpenA11y\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Aotr\\OpenA11y\\Tests\\": "tests/",
+      "Workbench\\App\\": "workbench/app/"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit",
+    "demo": "pnpm build && vendor/bin/testbench serve --port=4179"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Aotr\\OpenA11y\\OpenA11yServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "process-timeout": 0
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
 }

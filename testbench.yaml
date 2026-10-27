@@ -1,5 +1,6 @@
 providers:
   - Workbench\App\Providers\WorkbenchServiceProvider
+  - Inertia\ServiceProvider
 
 workbench:
   start: /blade

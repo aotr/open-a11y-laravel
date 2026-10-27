@@ -22,6 +22,8 @@
         <nav class="oa-nav" aria-label="Demo pages">
             <a href="{{ route('blade') }}" @class(['is-active' => request()->routeIs('blade')]) @if(request()->routeIs('blade')) aria-current="page" @endif>Blade</a>
             <a href="{{ route('livewire') }}" @class(['is-active' => request()->routeIs('livewire')]) @if(request()->routeIs('livewire')) aria-current="page" @endif>Livewire</a>
+            <a href="{{ route('inertia-react') }}" @class(['is-active' => request()->routeIs('inertia-react')]) @if(request()->routeIs('inertia-react')) aria-current="page" @endif>React</a>
+            <a href="{{ route('inertia-vue') }}" @class(['is-active' => request()->routeIs('inertia-vue')]) @if(request()->routeIs('inertia-vue')) aria-current="page" @endif>Vue</a>
             <a href="https://github.com/aotr/open-a11y-laravel" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
         </nav>
     </div>
@@ -35,7 +37,7 @@
     <div class="oa-footer__inner">
         <p class="oa-footer__mark">open·a11y <span>for Laravel</span></p>
         <p class="oa-footer__note">Built for pages that take access seriously. MIT licensed.</p>
-        <p class="oa-footer__meta">PHP 8.2+ · Laravel 12 · Livewire 3</p>
+        <p class="oa-footer__meta">PHP 8.2+ · Laravel 12 · Livewire 3 · Inertia 3</p>
     </div>
 </footer>
 

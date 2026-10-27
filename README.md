@@ -7,7 +7,7 @@
 
 **An accessibility widget with a real engine behind it — made native to Laravel.**
 
-open-a11y ships profiles, individual tools, keyboard shortcuts, persisted preferences, and a shadow-DOM interface. This package gives that runtime a Blade component, a Livewire component, a publishable config file, and a standalone browser bundle. No Node, Vite, or front-end build is required.
+open-a11y ships profiles, individual tools, keyboard shortcuts, persisted preferences, and a shadow-DOM interface. This package gives that runtime a Blade component, a Livewire component, publishable config, and a standalone browser bundle. It also includes complete Inertia React and Vue example pages. No Node, Vite, or front-end build is required for the Blade/Livewire package itself.
 
 ```blade
 <x-open-a11y::widget :config="['position' => 'bottom-right', 'brand' => ['primary' => '#0f6b4f']]" />
@@ -20,6 +20,8 @@ open-a11y ships profiles, individual tools, keyboard shortcuts, persisted prefer
 - PHP **8.2+**
 - Laravel **12**
 - Livewire **3** (for the Livewire component)
+- Optional: Inertia **3** with React 19 or Vue 3 (for the Inertia examples)
+- Node.js + pnpm only for rebuilding the Inertia demo assets
 - A browser with Web Components and Shadow DOM: Chrome 90+, Firefox 90+, Safari 15+, Edge 90+
 
 The Blade component is independent of Livewire. The package requires Livewire because it ships both integrations.
@@ -131,8 +133,8 @@ Every property is reactive. When a property changes, the component dispatches a
 browser event with the new config:
 
 ```js
-window.addEventListener('open-a11y:update', (event) => {
-    // event.detail = { key: 'open-a11y-…', config: { … } }
+window.addEventListener("open-a11y:update", (event) => {
+  // event.detail = { key: 'open-a11y-…', config: { … } }
 });
 ```
 
@@ -144,28 +146,116 @@ reset their preferences.
 Bind properties from a parent Livewire component or update them on the component
 itself; both paths flow through the same event.
 
+## Inertia + React
+
+The repository includes a full Inertia React page at `/inertia-react`. The
+package itself is framework-neutral; use the official React adapter in your
+Inertia entry:
+
+```bash
+npm install @aotr/open-a11y @inertiajs/react react react-dom
+```
+
+```tsx
+// resources/js/app.tsx
+import { createInertiaApp } from "@inertiajs/react";
+import { createRoot } from "react-dom/client";
+import { AccessibilityEngine, localStorageAdapter } from "@aotr/open-a11y";
+import { AccessibilityProvider } from "@aotr/open-a11y/react";
+
+const engine = new AccessibilityEngine({ storage: localStorageAdapter });
+
+createInertiaApp({
+  resolve: (name) => import(`./pages/${name}.tsx`),
+  setup({ el, App, props }) {
+    createRoot(el).render(
+      <AccessibilityProvider engine={engine} autoInit>
+        <App {...props} />
+      </AccessibilityProvider>,
+    );
+  },
+});
+```
+
+```tsx
+// resources/js/pages/Welcome.tsx
+import { AccessibilityWidget } from "@aotr/open-a11y/react";
+
+export default function Welcome({ config }) {
+  return (
+    <>
+      <h1>Your Inertia page</h1>
+      <AccessibilityWidget config={config} />
+    </>
+  );
+}
+```
+
+## Inertia + Vue
+
+```bash
+npm install @aotr/open-a11y @inertiajs/vue3 vue
+```
+
+```ts
+// resources/js/app.ts
+import { createApp, h } from "vue";
+import { createInertiaApp } from "@inertiajs/vue3";
+import { AccessibilityEngine, localStorageAdapter } from "@aotr/open-a11y";
+import { createAccessibilityPlugin } from "@aotr/open-a11y/vue";
+
+const engine = new AccessibilityEngine({ storage: localStorageAdapter });
+
+createInertiaApp({
+  resolve: (name) => import(`./pages/${name}.vue`),
+  setup({ el, App, props, plugin }) {
+    createApp({ render: () => h(App, props) })
+      .use(plugin)
+      .use(createAccessibilityPlugin(engine))
+      .mount(el);
+  },
+});
+```
+
+```vue
+<script setup lang="ts">
+import { A11yWidget } from "@aotr/open-a11y/vue";
+
+defineProps<{ config: Record<string, unknown> }>();
+</script>
+
+<template>
+  <h1>Your Inertia page</h1>
+  <A11yWidget :options="{ config }" />
+</template>
+```
+
+Both Inertia examples use the same server-resolved config as Blade and
+Livewire. The demo pages are in
+[`workbench/resources/js/pages`](workbench/resources/js/pages).
+
 ## Customization
 
 Blade passes the runtime config keys directly. Livewire exposes the most useful
 knobs as typed public properties.
 
-| Livewire property | Blade config key | Type | Default |
-| --- | --- | --- | --- |
-| `position` | `position` | `bottom-right`, `bottom-left`, `top-right`, `top-left` | `bottom-right` |
-| `side` | `side` | `right`, `left` | `right` |
-| `offsetX`, `offsetY` | `offset` | `[int, int]` | `[20, 20]` |
-| `blur` | `blur` | `bool` | `false` |
-| `buttonSize` | `buttonSize` | `int` (px) | `56` |
-| `showButton` | `showButton` | `bool` | `true` |
-| `primary` | `brand.primary` | CSS color | `#0f6b4f` |
-| `primaryDark` | `brand.primaryDark` | CSS color | `#0a4a37` |
-| `accent` | `brand.accent` | CSS color | `#d4a13a` |
-| `footerName` | `brand.name` | `string` | `''` |
-| `footerUrl` | `brand.url` | `string` | `''` |
-| `footerText` | `brand.footerText` | `string` | `''` |
-| `menuTitle` | `labels.widget.menuTitle` | `string` | `Accessibility options` |
-| `language` | `lang` | `en`, `hi` | `en` |
-| `widgetKey` | `widget-key` attribute | `string` | generated |
+| Livewire property    | Blade config key          | Type                                                   | Default                 |
+| -------------------- | ------------------------- | ------------------------------------------------------ | ----------------------- |
+| `position`           | `position`                | `bottom-right`, `bottom-left`, `top-right`, `top-left` | `bottom-right`          |
+| `side`               | `side`                    | `right`, `left`                                        | `right`                 |
+| `offsetX`, `offsetY` | `offset`                  | `[int, int]`                                           | `[20, 20]`              |
+| `blur`               | `blur`                    | `bool`                                                 | `false`                 |
+| `buttonSize`         | `buttonSize`              | `int` (px)                                             | `56`                    |
+| `showButton`         | `showButton`              | `bool`                                                 | `true`                  |
+| `primary`            | `brand.primary`           | CSS color                                              | `#0f6b4f`               |
+| `primaryDark`        | `brand.primaryDark`       | CSS color                                              | `#0a4a37`               |
+| `accent`             | `brand.accent`            | CSS color                                              | `#d4a13a`               |
+| `footerName`         | `brand.name`              | `string`                                               | `''`                    |
+| `footerUrl`          | `brand.url`               | `string`                                               | `''`                    |
+| `footerText`         | `brand.footerText`        | `string`                                               | `''`                    |
+| `menuTitle`          | `labels.widget.menuTitle` | `string`                                               | `Accessibility options` |
+| `language`           | `lang`                    | `en`, `hi`                                             | `en`                    |
+| `widgetKey`          | `widget-key` attribute    | `string`                                               | generated               |
 
 An empty `footerText` hides the footer. When it is omitted and `brand.name` is
 set, the runtime falls back to `Accessibility by {name}`.
@@ -211,21 +301,27 @@ Blade component and pass it through `labels`:
 
 ## Demo
 
-The repository includes a Testbench workbench with two polished demos:
+The repository includes a Testbench workbench with four demos:
 
-- `/blade` — the Blade component with a plain-JavaScript customizer
-- `/livewire` — the Livewire component with server-reactive controls
+- `/blade` — Blade component with a plain-JavaScript customizer
+- `/livewire` — Livewire component with server-reactive controls
+- `/inertia-react` — Inertia page powered by React 19
+- `/inertia-vue` — Inertia page powered by Vue 3
 
 ```bash
 composer install
+pnpm install
 composer demo
 ```
 
-Then open <http://127.0.0.1:4179/blade> or
-<http://127.0.0.1:4179/livewire>.
+`composer demo` builds both Inertia entries and starts the workbench on
+<http://127.0.0.1:4179>. The Blade and Livewire assets are served from
+`resources/dist`; the Inertia entries are built with Vite+ and served from the
+Testbench public directory.
 
-The demo assets are served from the package's `resources/dist` directory so a
-fresh clone works without a publish step.
+Open any of the four routes from the workbench navigation. The Inertia
+components live in
+[`workbench/resources/js/pages`](workbench/resources/js/pages).
 
 ## Testing
 
@@ -238,17 +334,18 @@ The suite uses Orchestra Testbench and PHPUnit. It covers:
 - Blade component rendering, JSON config serialization, and attribute merging
 - Livewire initial props, browser event dispatch, and language updates
 - Service provider view registration and publish tags
-- Both demo routes and the asset routes
+- All four demo routes and the asset routes
+- Inertia React and Vue page components and server props
 - Config defaults and override precedence
 
 ## Publishing
 
-| Tag | Copies |
-| --- | --- |
-| `open-a11y-config` | `config/open-a11y.php` → `config/open-a11y.php` |
-| `open-a11y-views` | `resources/views` → `resources/views/vendor/open-a11y` |
-| `open-a11y-assets` | `resources/dist` → `public/vendor/open-a11y` |
-| `open-a11y` | all of the above |
+| Tag                | Copies                                                 |
+| ------------------ | ------------------------------------------------------ |
+| `open-a11y-config` | `config/open-a11y.php` → `config/open-a11y.php`        |
+| `open-a11y-views`  | `resources/views` → `resources/views/vendor/open-a11y` |
+| `open-a11y-assets` | `resources/dist` → `public/vendor/open-a11y`           |
+| `open-a11y`        | all of the above                                       |
 
 ```bash
 php artisan vendor:publish --tag=open-a11y
