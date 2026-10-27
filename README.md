@@ -20,8 +20,8 @@ open-a11y ships profiles, individual tools, keyboard shortcuts, persisted prefer
 ## Requirements
 
 - PHP **8.2+**
-- Laravel **12**
-- Livewire **3** (for the Livewire component)
+- Laravel **12 or 13**
+- Livewire **3 or 4** (for the Livewire component)
 - Optional: Inertia **3** with React 19 or Vue 3 (for the Inertia examples)
 - Node.js + pnpm only for rebuilding the Inertia demo assets
 - A browser with Web Components and Shadow DOM: Chrome 90+, Firefox 90+, Safari 15+, Edge 90+
