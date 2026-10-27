@@ -1,6 +1,6 @@
 {
   "name": "aotr/open-a11y-laravel",
-  "description": "The open-a11y accessibility widget for Laravel Blade, Livewire, and Inertia React/Vue.",
+  "description": "The open-a11y accessibility widget for Laravel Blade, Livewire, and Inertia React/Vue/Svelte.",
   "keywords": [
     "laravel",
     "livewire",

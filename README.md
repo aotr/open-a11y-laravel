@@ -7,7 +7,7 @@
 
 **An accessibility widget with a real engine behind it — made native to Laravel.**
 
-open-a11y ships profiles, individual tools, keyboard shortcuts, persisted preferences, and a shadow-DOM interface. This package gives that runtime a Blade component, a Livewire component, publishable config, and a standalone browser bundle. It also includes complete Inertia React and Vue example pages. No Node, Vite, or front-end build is required for the Blade/Livewire package itself.
+open-a11y ships profiles, individual tools, keyboard shortcuts, persisted preferences, and a shadow-DOM interface. This package gives that runtime a Blade component, a Livewire component, publishable config, and a standalone browser bundle. It also includes complete Inertia React, Vue, and Svelte example pages. No Node, Vite, or front-end build is required for the Blade/Livewire package itself.
 
 ```blade
 <x-open-a11y::widget :config="['position' => 'bottom-right', 'brand' => ['primary' => '#0f6b4f']]" />
@@ -234,7 +234,46 @@ defineProps<{ config: Record<string, unknown> }>();
 </template>
 ```
 
-Both Inertia examples use the same server-resolved config as Blade and
+## Inertia + Svelte
+
+![Inertia Svelte demo](art/inertia-svelte.png)
+
+```bash
+npm install @aotr/open-a11y @inertiajs/svelte svelte
+```
+
+```ts
+// resources/js/app.ts
+import { createInertiaApp } from "@inertiajs/svelte";
+import { mount } from "svelte";
+import { AccessibilityEngine, localStorageAdapter } from "@aotr/open-a11y";
+
+const engine = new AccessibilityEngine({ storage: localStorageAdapter });
+
+void engine.init().then(() =>
+  createInertiaApp({
+    resolve: (name) => import(`./pages/${name}.svelte`),
+    setup({ el, App, props }) {
+      mount(App, { target: el, props });
+    },
+  }),
+);
+```
+
+```svelte
+<script lang="ts">
+    import { accessibilityWidget } from "@aotr/open-a11y/svelte";
+    import { engine } from "./accessibility-engine";
+
+    let { config } = $props();
+    const widgetOptions = { engine, config };
+</script>
+
+<h1>Your Inertia page</h1>
+<div use:accessibilityWidget={widgetOptions}></div>
+```
+
+All three Inertia examples use the same server-resolved config as Blade and
 Livewire. The demo pages are in
 [`workbench/resources/js/pages`](workbench/resources/js/pages).
 
@@ -311,6 +350,7 @@ The repository includes a Testbench workbench with four demos:
 - `/livewire` — Livewire component with server-reactive controls
 - `/inertia-react` — Inertia page powered by React 19
 - `/inertia-vue` — Inertia page powered by Vue 3
+- `/inertia-svelte` — Inertia page powered by Svelte 5
 
 ```bash
 composer install
@@ -318,7 +358,7 @@ pnpm install
 composer demo
 ```
 
-`composer demo` builds both Inertia entries and starts the workbench on
+`composer demo` builds the Inertia entries and starts the workbench on
 <http://127.0.0.1:4179>. The Blade and Livewire assets are served from
 `resources/dist`; the Inertia entries are built with Vite+ and served from the
 Testbench public directory.
@@ -338,8 +378,8 @@ The suite uses Orchestra Testbench and PHPUnit. It covers:
 - Blade component rendering, JSON config serialization, and attribute merging
 - Livewire initial props, browser event dispatch, and language updates
 - Service provider view registration and publish tags
-- All four demo routes and the asset routes
-- Inertia React and Vue page components and server props
+- All five demo routes and the asset routes
+- Inertia React, Vue, and Svelte page components and server props
 - Config defaults and override precedence
 
 ## Publishing

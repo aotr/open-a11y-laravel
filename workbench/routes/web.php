@@ -42,6 +42,10 @@ Route::middleware('web')->group(function () use ($demoConfig) {
         'config' => $demoConfig(),
     ])->rootView('workbench::inertia'))->name('inertia-vue');
 
+    Route::get('/inertia-svelte', fn () => Inertia::render('InertiaSvelte', [
+        'config' => $demoConfig(),
+    ])->rootView('workbench::inertia'))->name('inertia-svelte');
+
     Route::get('/demo.css', function () {
         return response()->file(
             dirname(__DIR__).'/resources/css/demo.css',

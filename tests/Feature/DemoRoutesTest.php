@@ -61,6 +61,18 @@ class DemoRoutesTest extends TestCase
             ->where('config.lang', 'en');
     }
 
+    public function test_the_inertia_svelte_demo_returns_the_expected_page(): void
+    {
+        $this->withoutVite();
+
+        $response = $this->get('/inertia-svelte')->assertOk();
+
+        AssertableInertia::fromTestResponse($response)
+            ->component('InertiaSvelte')
+            ->where('config.position', 'bottom-right')
+            ->where('config.lang', 'en');
+    }
+
     public function test_the_demo_stylesheet_is_served(): void
     {
         $this->get('/demo.css')

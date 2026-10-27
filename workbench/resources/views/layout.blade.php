@@ -24,6 +24,7 @@
             <a href="{{ route('livewire') }}" @class(['is-active' => request()->routeIs('livewire')]) @if(request()->routeIs('livewire')) aria-current="page" @endif>Livewire</a>
             <a href="{{ route('inertia-react') }}" @class(['is-active' => request()->routeIs('inertia-react')]) @if(request()->routeIs('inertia-react')) aria-current="page" @endif>React</a>
             <a href="{{ route('inertia-vue') }}" @class(['is-active' => request()->routeIs('inertia-vue')]) @if(request()->routeIs('inertia-vue')) aria-current="page" @endif>Vue</a>
+            <a href="{{ route('inertia-svelte') }}" @class(['is-active' => request()->routeIs('inertia-svelte')]) @if(request()->routeIs('inertia-svelte')) aria-current="page" @endif>Svelte</a>
             <a href="https://github.com/aotr/open-a11y-laravel" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
         </nav>
     </div>

@@ -17,7 +17,7 @@ class WorkbenchServiceProvider extends ServiceProvider
 
         config([
             'inertia.pages.paths' => [dirname(__DIR__, 2).'/resources/js/pages'],
-            'inertia.pages.extensions' => ['tsx', 'vue'],
+            'inertia.pages.extensions' => ['tsx', 'vue', 'svelte'],
         ]);
     }
 

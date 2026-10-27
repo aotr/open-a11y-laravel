@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Inertia React 19 example page at `/inertia-react` with live widget customization.
 - Inertia Vue 3 example page at `/inertia-vue` with live widget customization.
+- Inertia Svelte 5 example page at `/inertia-svelte` with live widget customization.
 - Vite+ build for both Inertia entries.
 - Inertia route and server-prop tests.
 

@@ -1,9 +1,7 @@
 import { createApp, h } from "vue";
 import { createInertiaApp } from "@inertiajs/vue3";
-import { AccessibilityEngine, localStorageAdapter } from "@aotr/open-a11y";
 import { createAccessibilityPlugin } from "@aotr/open-a11y/vue";
-
-const engine = new AccessibilityEngine({ storage: localStorageAdapter });
+import { engine } from "./accessibility-engine";
 
 void engine.init().then(() =>
   createInertiaApp({
