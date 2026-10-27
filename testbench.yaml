@@ -1,0 +1,6 @@
+providers:
+  - Workbench\App\Providers\WorkbenchServiceProvider
+
+workbench:
+  start: /blade
+  install: true
