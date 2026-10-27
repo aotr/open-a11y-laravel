@@ -10,6 +10,8 @@
     } from "../demo-config";
 
     let { config } = $props<{ config: Partial<IAccessibilityConfig> }>();
+    // Inertia sends the initial server config once per page visit.
+    // svelte-ignore state_referenced_locally
     let state = $state<DemoState>(stateFromConfig(config));
     const a11y = createAccessibilityStore(engine);
     const widgetOptions = $derived({ engine, config: toConfig(state) });
