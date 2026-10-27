@@ -5,6 +5,12 @@ All notable changes to `aotr/open-a11y-laravel` are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-10-27
+
+### Changed
+
+- Updated the bundled open-a11y browser runtime.
+
 ## [1.0.0] - 2026-10-26
 
 ### Added
@@ -27,4 +33,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions test workflow on PHP 8.4.
 - MIT license, README, and contributing guide.
 
+[1.0.1]: https://github.com/aotr/open-a11y-laravel/releases/tag/v1.0.1
 [1.0.0]: https://github.com/aotr/open-a11y-laravel/releases/tag/v1.0.0
