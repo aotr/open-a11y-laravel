@@ -24,7 +24,17 @@ class OpenA11yServiceProvider extends ServiceProvider
         Blade::componentNamespace('Aotr\\OpenA11y\\View\\Components', 'open-a11y');
 
         if (class_exists(Livewire::class)) {
-            Livewire::component('open-a11y::widget', LivewireWidget::class);
+            $livewire = app('livewire');
+
+            if (method_exists($livewire, 'addNamespace')) {
+                // Livewire 4 resolves namespaced components through the finder.
+                $livewire->addNamespace(
+                    namespace: 'open-a11y',
+                    classNamespace: 'Aotr\\OpenA11y\\Livewire',
+                );
+            } else {
+                Livewire::component('open-a11y::widget', LivewireWidget::class);
+            }
         }
 
         $this->publishes([
