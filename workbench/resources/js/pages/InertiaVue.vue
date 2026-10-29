@@ -169,6 +169,20 @@ function reset() {
           />
         </div>
 
+        <div class="oa-field">
+          <label for="vue-size-mobile">
+            Mobile button size <output>{{ state.buttonSizeMobile }} px</output>
+          </label>
+          <input
+            id="vue-size-mobile"
+            v-model.number="state.buttonSizeMobile"
+            type="range"
+            min="20"
+            max="80"
+            step="2"
+          />
+        </div>
+
         <div class="oa-field oa-field--colors">
           <label for="vue-primary">Primary</label>
           <div class="oa-color">

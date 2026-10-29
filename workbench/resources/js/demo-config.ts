@@ -7,6 +7,7 @@ export interface DemoState {
   offsetY: number;
   blur: boolean;
   buttonSize: number;
+  buttonSizeMobile: number;
   showButton: boolean;
   primary: string;
   accent: string;
@@ -24,6 +25,7 @@ export const defaultState: DemoState = {
   offsetY: 20,
   blur: true,
   buttonSize: 56,
+  buttonSizeMobile: 44,
   showButton: true,
   primary: "#0f6b4f",
   accent: "#d4a13a",
@@ -43,6 +45,7 @@ export function stateFromConfig(config: Partial<IAccessibilityConfig>): DemoStat
     offsetY: config.offset?.[1] ?? defaultState.offsetY,
     blur: config.blur ?? defaultState.blur,
     buttonSize: config.buttonSize ?? defaultState.buttonSize,
+    buttonSizeMobile: config.buttonSizeMobile ?? defaultState.buttonSizeMobile,
     showButton: config.showButton ?? defaultState.showButton,
     primary: config.brand?.primary ?? defaultState.primary,
     accent: config.brand?.accent ?? defaultState.accent,
@@ -61,6 +64,7 @@ export function toConfig(state: DemoState): IAccessibilityConfig {
     offset: [state.offsetX, state.offsetY],
     blur: state.blur,
     buttonSize: state.buttonSize,
+    buttonSizeMobile: state.buttonSizeMobile,
     showButton: state.showButton,
     lang: state.language,
     brand: {

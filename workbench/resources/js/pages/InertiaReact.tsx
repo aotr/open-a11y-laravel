@@ -187,6 +187,21 @@ export default function InertiaReact() {
               />
             </div>
 
+            <div className="oa-field">
+              <label htmlFor="react-size-mobile">
+                Mobile button size <output>{state.buttonSizeMobile} px</output>
+              </label>
+              <input
+                id="react-size-mobile"
+                type="range"
+                min="20"
+                max="80"
+                step="2"
+                value={state.buttonSizeMobile}
+                onChange={(event) => update("buttonSizeMobile", Number(event.target.value))}
+              />
+            </div>
+
             <div className="oa-field oa-field--colors">
               <label htmlFor="react-primary">Primary</label>
               <div className="oa-color">

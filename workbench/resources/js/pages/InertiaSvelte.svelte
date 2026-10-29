@@ -136,6 +136,11 @@
                 <input id="svelte-size" type="range" min="40" max="80" step="2" bind:value={state.buttonSize} />
             </div>
 
+            <div class="oa-field">
+                <label for="svelte-size-mobile">Mobile button size <output>{state.buttonSizeMobile} px</output></label>
+                <input id="svelte-size-mobile" type="range" min="20" max="80" step="2" bind:value={state.buttonSizeMobile} />
+            </div>
+
             <div class="oa-field oa-field--colors">
                 <label for="svelte-primary">Primary</label>
                 <div class="oa-color">

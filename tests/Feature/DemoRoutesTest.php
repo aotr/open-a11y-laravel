@@ -19,6 +19,7 @@ class DemoRoutesTest extends TestCase
             ->assertSee('Blade component')
             ->assertSee('The config is the component.')
             ->assertSee('id="blade-customizer"', false)
+            ->assertSee('id="oa-size-mobile"', false)
             ->assertSee('data-open-a11y="blade-demo"', false)
             ->assertSee('name="csrf-token"', false)
             ->assertSee('/demo-assets/open-a11y.js', false)
@@ -32,6 +33,7 @@ class DemoRoutesTest extends TestCase
             ->assertSee('Livewire component')
             ->assertSee('Reactive properties, one runtime.')
             ->assertSee('wire:model.live="position"', false)
+            ->assertSee('id="lw-size-mobile"', false)
             ->assertSee('data-open-a11y="livewire-demo"', false)
             ->assertSee('/demo-assets/open-a11y.js', false);
     }
@@ -45,6 +47,7 @@ class DemoRoutesTest extends TestCase
         AssertableInertia::fromTestResponse($response)
             ->component('InertiaReact')
             ->where('config.position', 'bottom-right')
+            ->where('config.buttonSizeMobile', 44)
             ->where('config.brand.primary', '#0f6b4f')
             ->where('config.labels', fn ($labels) => $labels['widget.menuTitle'] === 'Accessibility options');
     }

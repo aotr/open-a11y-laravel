@@ -14,6 +14,7 @@ class BladeWidgetTest extends TestCase
                 'position' => 'top-left',
                 'blur' => true,
                 'buttonSize' => 64,
+                'buttonSizeMobile' => 28,
                 'brand' => [
                     'name' => 'Acme',
                     'primary' => '#123456',
@@ -30,6 +31,7 @@ class BladeWidgetTest extends TestCase
         $this->assertSame('top-left', $config['position']);
         $this->assertTrue($config['blur']);
         $this->assertSame(64, $config['buttonSize']);
+        $this->assertSame(28, $config['buttonSizeMobile']);
         $this->assertSame('Acme', $config['brand']['name']);
         $this->assertSame('#123456', $config['brand']['primary']);
         $this->assertSame('#fedcba', $config['brand']['accent']);

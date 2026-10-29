@@ -10,6 +10,7 @@ $demoConfig = static fn (): array => WidgetConfig::resolve([
     'offset' => [20, 20],
     'blur' => true,
     'buttonSize' => 56,
+    'buttonSizeMobile' => 44,
     'showButton' => true,
     'lang' => 'en',
     'brand' => [

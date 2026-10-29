@@ -46,10 +46,20 @@ class ServiceProviderTest extends TestCase
         $this->assertFileExists(__DIR__.'/../../resources/dist/open-a11y-laravel.js');
     }
 
+    public function test_the_browser_bundle_includes_mobile_sizing_and_underline_links(): void
+    {
+        $bundle = file_get_contents(__DIR__.'/../../resources/dist/open-a11y.js');
+
+        $this->assertIsString($bundle);
+        $this->assertStringContainsString('button-size-mobile', $bundle);
+        $this->assertStringContainsString('underline-links', $bundle);
+    }
+
     public function test_it_merges_the_package_config(): void
     {
         $this->assertSame('bottom-right', config('open-a11y.position'));
         $this->assertSame(56, config('open-a11y.button_size'));
+        $this->assertSame(44, config('open-a11y.button_size_mobile'));
         $this->assertSame('vendor/open-a11y', config('open-a11y.assets.path'));
     }
 

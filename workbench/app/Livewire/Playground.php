@@ -20,6 +20,8 @@ class Playground extends Component
 
     public int $buttonSize = 56;
 
+    public int $buttonSizeMobile = 44;
+
     public bool $showButton = true;
 
     public string $primary = '#0f6b4f';
@@ -55,6 +57,7 @@ class Playground extends Component
         $this->offsetY = 20;
         $this->blur = true;
         $this->buttonSize = 56;
+        $this->buttonSizeMobile = 44;
         $this->showButton = true;
         $this->primary = '#0f6b4f';
         $this->accent = '#d4a13a';
@@ -78,6 +81,7 @@ class Playground extends Component
             'offset' => [$this->offsetX, $this->offsetY],
             'blur' => $this->blur,
             'buttonSize' => $this->buttonSize,
+            'buttonSizeMobile' => $this->buttonSizeMobile,
             'showButton' => $this->showButton,
             'lang' => $this->language,
             'brand' => [

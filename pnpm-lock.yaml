@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@aotr/open-a11y':
-        specifier: ^2.0.3
-        version: 2.0.3(react@19.3.1)(svelte@5.57.3)(vue@3.5.44)
+        specifier: ^2.2.0
+        version: 2.2.0(react@19.3.1)(svelte@5.57.3)(vue@3.5.44)
       '@inertiajs/react':
         specifier: ^3.9.1
         version: 3.9.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -60,8 +60,8 @@ importers:
 
 packages:
 
-  '@aotr/open-a11y@2.0.3':
-    resolution: {integrity: sha512-uUDlBYBrHfvTjyM+TmbBshL+YXrnonRIX64rdjbRiomunP5s7oxkAgtP5vKPc5YQATlRTYmDYEF3e4yyb/Vveg==}
+  '@aotr/open-a11y@2.2.0':
+    resolution: {integrity: sha512-TKIOS2J+NXufmfGDxk0lM3oz8hVVwUuRItXijjDXLN5+FQJeXowEGip3tQ1TGpbmdYhsmrjG1Sf67Ldoe+xlyg==}
     peerDependencies:
       '@angular/core': '>=17.0.0'
       react: '>=17.0.0'
@@ -1188,7 +1188,7 @@ packages:
 
 snapshots:
 
-  '@aotr/open-a11y@2.0.3(react@19.3.1)(svelte@5.57.3)(vue@3.5.44)':
+  '@aotr/open-a11y@2.2.0(react@19.3.1)(svelte@5.57.3)(vue@3.5.44)':
     dependencies:
       lucide: 1.61.0
     optionalDependencies:

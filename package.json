@@ -9,7 +9,7 @@
     "preview": "vp preview"
   },
   "dependencies": {
-    "@aotr/open-a11y": "^2.0.3",
+    "@aotr/open-a11y": "^2.2.0",
     "@inertiajs/react": "^3.9.1",
     "@inertiajs/vue3": "^3.9.1",
     "react": "^19.3.1",

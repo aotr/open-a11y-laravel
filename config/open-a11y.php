@@ -22,6 +22,8 @@ return [
 
     'button_size' => 56,
 
+    'button_size_mobile' => 44,
+
     'show_button' => true,
 
     /*

@@ -14,6 +14,7 @@ class LivewireWidgetTest extends TestCase
             ->assertStatus(200)
             ->assertSet('position', 'bottom-right')
             ->assertSet('buttonSize', 56)
+            ->assertSet('buttonSizeMobile', 44)
             ->assertSet('showButton', true)
             ->assertSee('data-open-a11y-config', false)
             ->assertSee('open-a11y-laravel.js', false);
@@ -28,6 +29,7 @@ class LivewireWidgetTest extends TestCase
             'offsetY' => 44,
             'blur' => true,
             'buttonSize' => 72,
+            'buttonSizeMobile' => 32,
             'showButton' => false,
             'primary' => '#123456',
             'accent' => '#abcdef',
@@ -42,6 +44,7 @@ class LivewireWidgetTest extends TestCase
             ->assertSet('offsetY', 44)
             ->assertSet('blur', true)
             ->assertSet('buttonSize', 72)
+            ->assertSet('buttonSizeMobile', 32)
             ->assertSet('showButton', false)
             ->assertSet('language', 'hi')
             ->assertSee('data-open-a11y-config', false);
@@ -51,10 +54,12 @@ class LivewireWidgetTest extends TestCase
     {
         Livewire::test(Widget::class)
             ->set('position', 'top-right')
+            ->set('buttonSizeMobile', 30)
             ->set('primary', '#c2410c')
             ->assertDispatched('open-a11y:update', function (string $name, array $params): bool {
                 return $name === 'open-a11y:update'
                     && $params['config']['position'] === 'top-right'
+                    && $params['config']['buttonSizeMobile'] === 30
                     && $params['config']['brand']['primary'] === '#c2410c'
                     && is_string($params['key'])
                     && $params['key'] !== '';

@@ -30,6 +30,7 @@ final class WidgetConfig
             'offset' => config('open-a11y.offset', [20, 20]),
             'blur' => (bool) config('open-a11y.blur', false),
             'buttonSize' => (int) config('open-a11y.button_size', 56),
+            'buttonSizeMobile' => (int) config('open-a11y.button_size_mobile', 44),
             'showButton' => (bool) config('open-a11y.show_button', true),
             'lang' => config('open-a11y.language', 'en'),
             'brand' => $brand,

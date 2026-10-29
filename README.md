@@ -67,9 +67,10 @@ npm install @aotr/open-a11y
 
 **This package ships the standalone IIFE browser bundle** in
 `resources/dist/open-a11y.js`, so Laravel applications can use the widget
-without a JavaScript toolchain. If your app already bundles the npm core, point
-`open-a11y.assets.url` at your built asset (or publish and edit the package
-views).
+without a JavaScript toolchain. The current bundle is **open-a11y 2.2.0**,
+including Underline Links and separate mobile button sizing. If your app already
+bundles the npm core, point `open-a11y.assets.url` at your built asset (or
+publish and edit the package views).
 
 ## Blade
 
@@ -81,6 +82,7 @@ views).
         'offset' => [24, 24],
         'blur' => true,
         'buttonSize' => 56,
+        'buttonSizeMobile' => 44,
         'showButton' => true,
         'lang' => 'en',
         'brand' => [
@@ -292,6 +294,7 @@ knobs as typed public properties.
 | `offsetX`, `offsetY` | `offset`                  | `[int, int]`                                           | `[20, 20]`              |
 | `blur`               | `blur`                    | `bool`                                                 | `false`                 |
 | `buttonSize`         | `buttonSize`              | `int` (px)                                             | `56`                    |
+| `buttonSizeMobile`   | `buttonSizeMobile`        | `int` (px)                                             | `44`                    |
 | `showButton`         | `showButton`              | `bool`                                                 | `true`                  |
 | `primary`            | `brand.primary`           | CSS color                                              | `#0f6b4f`               |
 | `primaryDark`        | `brand.primaryDark`       | CSS color                                              | `#0a4a37`               |
@@ -315,6 +318,7 @@ return [
     'offset' => [20, 20],
     'blur' => false,
     'button_size' => 56,
+    'button_size_mobile' => 44,
     'show_button' => true,
     'language' => 'en',
     'menu_title' => 'Accessibility options',

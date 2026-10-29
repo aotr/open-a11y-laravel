@@ -107,6 +107,11 @@
                     <input id="oa-size" type="range" name="buttonSize" min="40" max="80" step="2" value="{{ $config['buttonSize'] }}">
                 </div>
 
+                <div class="oa-field">
+                    <label for="oa-size-mobile">Mobile button size <output id="oa-size-mobile-value" for="oa-size-mobile">{{ $config['buttonSizeMobile'] }} px</output></label>
+                    <input id="oa-size-mobile" type="range" name="buttonSizeMobile" min="20" max="80" step="2" value="{{ $config['buttonSizeMobile'] }}">
+                </div>
+
                 <div class="oa-field oa-field--colors">
                     <label for="oa-primary">Primary</label>
                     <div class="oa-color">
@@ -180,6 +185,7 @@
             var status = document.getElementById('customizer-status');
             var mount = document.querySelector('[data-open-a11y]');
             var sizeOutput = document.getElementById('oa-size-value');
+            var mobileSizeOutput = document.getElementById('oa-size-mobile-value');
             var colorOutputs = document.querySelectorAll('.oa-color__value');
 
             if (!form || !preview || !mount) {
@@ -197,6 +203,7 @@
                     offset: [Number(data.get('offsetX')), Number(data.get('offsetY'))],
                     blur: data.get('blur') === 'on',
                     buttonSize: Number(data.get('buttonSize')),
+                    buttonSizeMobile: Number(data.get('buttonSizeMobile')),
                     showButton: data.get('showButton') === 'on',
                     lang: data.get('language'),
                     brand: {
@@ -216,6 +223,10 @@
             function paint() {
                 if (sizeOutput) {
                     sizeOutput.textContent = form.elements.buttonSize.value + ' px';
+                }
+
+                if (mobileSizeOutput) {
+                    mobileSizeOutput.textContent = form.elements.buttonSizeMobile.value + ' px';
                 }
 
                 colorOutputs.forEach(function (output) {

@@ -5,6 +5,21 @@ All notable changes to `aotr/open-a11y-laravel` are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-10-30
+
+### Added
+
+- `buttonSizeMobile` support in the config, Blade component, Livewire component,
+  and all four demo customizers.
+- Mobile button-size controls in the Blade, Livewire, Inertia React, Inertia Vue,
+  and Inertia Svelte demos.
+
+### Changed
+
+- Updated the bundled browser runtime to `@aotr/open-a11y` 2.2.0, including the
+  Underline Links tool.
+- Updated the workbench Inertia dependency to `@aotr/open-a11y` 2.2.0.
+
 ## [1.1.0] - 2026-10-27
 
 ### Added
@@ -50,7 +65,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions test workflow on PHP 8.4.
 - MIT license, README, and contributing guide.
 
-[1.1.0]: https://github.com/aotr/open-a11y-laravel/releases/tag/v1.1.0
+[1.2.0]: https://github.com/aotr/open-a11y-laravel/releases/tag/v1.2.0
 [1.1.0]: https://github.com/aotr/open-a11y-laravel/releases/tag/v1.1.0
 [1.0.1]: https://github.com/aotr/open-a11y-laravel/releases/tag/v1.0.1
 [1.0.0]: https://github.com/aotr/open-a11y-laravel/releases/tag/v1.0.0

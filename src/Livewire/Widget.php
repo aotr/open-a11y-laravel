@@ -21,6 +21,8 @@ class Widget extends Component
 
     public int $buttonSize = 56;
 
+    public int $buttonSizeMobile = 44;
+
     public bool $showButton = true;
 
     public string $primary = '#0f6b4f';
@@ -48,6 +50,7 @@ class Widget extends Component
         int $offsetY = 20,
         bool $blur = false,
         int $buttonSize = 56,
+        int $buttonSizeMobile = 44,
         bool $showButton = true,
         string $primary = '#0f6b4f',
         string $primaryDark = '#0a4a37',
@@ -65,6 +68,7 @@ class Widget extends Component
         $this->offsetY = $offsetY;
         $this->blur = $blur;
         $this->buttonSize = $buttonSize;
+        $this->buttonSizeMobile = $buttonSizeMobile;
         $this->showButton = $showButton;
         $this->primary = $primary;
         $this->primaryDark = $primaryDark;
@@ -97,6 +101,7 @@ class Widget extends Component
             'offset' => [$this->offsetX, $this->offsetY],
             'blur' => $this->blur,
             'buttonSize' => $this->buttonSize,
+            'buttonSizeMobile' => $this->buttonSizeMobile,
             'showButton' => $this->showButton,
             'lang' => $this->language,
             'brand' => [

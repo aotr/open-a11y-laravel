@@ -50,6 +50,11 @@
             <input id="lw-size" type="range" wire:model.live="buttonSize" min="40" max="80" step="2">
         </div>
 
+        <div class="oa-field">
+            <label for="lw-size-mobile">Mobile button size <output for="lw-size-mobile">{{ $buttonSizeMobile }} px</output></label>
+            <input id="lw-size-mobile" type="range" wire:model.live="buttonSizeMobile" min="20" max="80" step="2">
+        </div>
+
         <div class="oa-field oa-field--colors">
             <label for="lw-primary">Primary</label>
             <div class="oa-color">

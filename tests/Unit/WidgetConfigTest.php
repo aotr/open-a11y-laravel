@@ -16,6 +16,7 @@ class WidgetConfigTest extends TestCase
         $this->assertSame([20, 20], $config['offset']);
         $this->assertFalse($config['blur']);
         $this->assertSame(56, $config['buttonSize']);
+        $this->assertSame(44, $config['buttonSizeMobile']);
         $this->assertTrue($config['showButton']);
         $this->assertSame('en', $config['lang']);
         $this->assertSame('#0f6b4f', $config['brand']['primary']);
@@ -28,6 +29,7 @@ class WidgetConfigTest extends TestCase
         config([
             'open-a11y.position' => 'top-left',
             'open-a11y.button_size' => 64,
+            'open-a11y.button_size_mobile' => 32,
             'open-a11y.brand.primary' => '#101010',
         ]);
 
@@ -35,6 +37,7 @@ class WidgetConfigTest extends TestCase
             'side' => 'left',
             'offset' => [48],
             'blur' => true,
+            'buttonSizeMobile' => 36,
             'brand' => [
                 'name' => 'Acme',
                 'footerText' => '',
@@ -50,6 +53,7 @@ class WidgetConfigTest extends TestCase
         $this->assertSame([48, 20], $config['offset']);
         $this->assertTrue($config['blur']);
         $this->assertSame(64, $config['buttonSize']);
+        $this->assertSame(36, $config['buttonSizeMobile']);
         $this->assertSame('#101010', $config['brand']['primary']);
         $this->assertSame('#f4c430', $config['brand']['accent']);
         $this->assertSame('Acme', $config['brand']['name']);
