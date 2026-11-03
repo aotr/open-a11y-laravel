@@ -1,19 +1,28 @@
 {
   "name": "aotr/open-a11y-laravel",
-  "description": "The open-a11y accessibility widget for Laravel Blade, Livewire, and Inertia React/Vue/Svelte.",
+  "description": "Open-source accessibility widget for Laravel Blade, Livewire, and Inertia React, Vue, and Svelte. WCAG-focused, MIT, self-hosted.",
   "keywords": [
     "laravel",
     "livewire",
     "blade",
     "inertia",
+    "inertiajs",
     "react",
     "vue",
+    "svelte",
     "accessibility",
+    "accessibility-toolbar",
+    "accessibility-widget",
     "a11y",
+    "a11y-widget",
     "widget",
-    "wcag"
+    "wcag",
+    "wcag2",
+    "self-hosted",
+    "composer-package",
+    "laravel-package"
   ],
-  "homepage": "https://github.com/aotr/open-a11y-laravel",
+  "homepage": "https://aotr.github.io/open-a11y/",
   "license": "MIT",
   "authors": [
     {

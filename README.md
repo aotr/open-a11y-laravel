@@ -72,6 +72,32 @@ including Underline Links and separate mobile button sizing. If your app already
 bundles the npm core, point `open-a11y.assets.url` at your built asset (or
 publish and edit the package views).
 
+## Common questions
+
+**Is this an accessibility overlay?**
+No. It is a client-side preference toolbar. It does not claim to remediate
+inaccessible markup or make a site legally compliant.
+
+**Does it require Node or Vite?**
+No for Blade and Livewire. The package ships a standalone browser bundle. The
+Inertia examples use Vite, but the published component does not require it.
+
+**Does it support Livewire 4?**
+Yes. The package supports Livewire 3 and 4. The current release is tested against
+both.
+
+**Does it make my Laravel app WCAG compliant?**
+No. It adds optional user controls. You still need semantic Blade markup,
+keyboard testing, screen-reader testing, and manual audits.
+
+**Is it free?**
+Yes. The package is MIT licensed. There is no per-site subscription and no
+vendor script.
+
+**Where are preferences stored?**
+The browser runtime stores them in `localStorage` by default. Server-side
+preference sync is not included.
+
 ## Blade
 
 ```blade
