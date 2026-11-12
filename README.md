@@ -67,8 +67,8 @@ npm install @aotr/open-a11y
 
 **This package ships the standalone IIFE browser bundle** in
 `resources/dist/open-a11y.js`, so Laravel applications can use the widget
-without a JavaScript toolchain. The current bundle is **open-a11y 2.2.0**,
-including Underline Links and separate mobile button sizing. If your app already
+without a JavaScript toolchain. The current bundle is **open-a11y 2.3.0**,
+including Underline Links, 10 UI languages, and separate mobile button sizing. If your app already
 bundles the npm core, point `open-a11y.assets.url` at your built asset (or
 publish and edit the package views).
 

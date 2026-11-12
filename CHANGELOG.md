@@ -5,6 +5,13 @@ All notable changes to `aotr/open-a11y-laravel` are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-11-13
+
+### Added
+
+- Bundled `@aotr/open-a11y` 2.3.0 with 10 UI languages: English, Hindi,
+  Bengali, Marathi, Tamil, Telugu, Gujarati, Kannada, Malayalam, and Punjabi
+
 ## [1.2.2] - 2026-11-03
 
 ### Documentation
@@ -79,6 +86,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions test workflow on PHP 8.4.
 - MIT license, README, and contributing guide.
 
+[1.3.0]: https://github.com/aotr/open-a11y-laravel/releases/tag/v1.3.0
 [1.2.2]: https://github.com/aotr/open-a11y-laravel/releases/tag/v1.2.2
 [1.2.1]: https://github.com/aotr/open-a11y-laravel/releases/tag/v1.2.1
 [1.2.0]: https://github.com/aotr/open-a11y-laravel/releases/tag/v1.2.0

@@ -53,6 +53,8 @@ class ServiceProviderTest extends TestCase
         $this->assertIsString($bundle);
         $this->assertStringContainsString('button-size-mobile', $bundle);
         $this->assertStringContainsString('underline-links', $bundle);
+        $this->assertStringContainsString('Malayalam', $bundle);
+        $this->assertStringContainsString('Punjabi', $bundle);
     }
 
     public function test_it_merges_the_package_config(): void
